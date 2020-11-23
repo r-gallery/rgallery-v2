@@ -24,7 +24,7 @@ const Layout = props => {
 
   return (
     <div className={`main-height ${toggleNav ? `site-head-open` : ``}`}>
-      <header className="site-wrapper site-head ">
+      {/* <header className="site-wrapper site-head ">
         <div className="site-head-container">
           <a
             className="nav-burger"
@@ -45,20 +45,13 @@ const Layout = props => {
           <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
               <li className="nav-about" role="menuitem">
-                {/* <Link to={`/about`}>About</Link> */}
-                {/* <AniLink fade to="about"> */}
-                <AniLink fade to="about">
-                  About
-                </AniLink>
+                <Link to={`/about`}>About</Link>
               </li>
               <li className="nav-visit" role="menuitem">
                 <Link to={`/visit`}>Visit</Link>
               </li>
               <li className="nav-artists" role="menuitem">
-                <AniLink fade to="artists">
-                  Artists
-                </AniLink>
-                {/* <Link to={`/artists`}>Artists</Link> */}
+                <Link to={`/artists`}>Artists</Link>
               </li>
               <li className="nav-exhibitions" role="menuitem">
                 <Link to={`/exhibitions`}>Exhibitions</Link>
@@ -91,14 +84,14 @@ const Layout = props => {
               >
                 Facebook
               </a>
-              {/* <a
+              <a
                 href="https://twitter.com"
                 title="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Twitter
-              </a> */}
+              </a>
               <Link
                 to={`/rss.xml`}
                 title="RSS"
@@ -111,6 +104,7 @@ const Layout = props => {
           </div>
         </div>
       </header>
+       */}
       <main id="site-main" className="site-main">
         <div id="swup" className="transition-fade">
           {children}

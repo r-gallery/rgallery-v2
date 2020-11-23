@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import TransitionLink from "gatsby-plugin-transition-link"
+import Img from "gatsby-image"
+// import TransitionLink from "gatsby-plugin-transition-link"
 
 import Layout from "../components/layout"
 import Bio from "../components/bio"
@@ -23,13 +24,57 @@ const BlogIndex = ({ data }, location) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
+      <main className="landing-main">
+        <div className="logo">
+          <Img
+            fixed={data.logo.childImageSharp.fixed}
+            alt="RGallery Logo"
+            className=""
+          />
+        </div>
+        <section className="landing-img">
+          <Img fluid={data.landingPhoto.childImageSharp.fluid} className="" />
+        </section>
+        <div className="left-text row">
+          <div className="left-text-lg">contemporary</div>
+          <div className="left-text-sm">arts</div>
+        </div>
+        <div className="right-text row">
+          <div className="right-text-lg">creativity</div>
+          <div className="right-text-sm">unfolded</div>
+        </div>
+        <div className="btn-start-wrapper row">
+          <button className="btn-start">Start & Discover</button>
+        </div>
+        <nav
+          style={{
+            // position: "absolute",
+            zIndex: 4,
+            // bottom: "-3rem",
+            // right: "11rem",
+          }}
+          className="row"
+        >
+          <ul
+            style={{
+              display: "inline-flex",
+            }}
+          >
+            <li>About</li>
+            <li>Visit</li>
+            <li>Artists</li>
+            <li>Exhibitions</li>
+            <li>Blog</li>
+          </ul>
+        </nav>
+      </main>
       {/* <Bio /> */}
-      <main className="app-wrapper">
-        <div class="app">
-          {/* <h1>Some headline</h1> */}
+      {/* <main className="app-wrapper"> */}
+      {/* <div class="app"> */}
+      {/* <h1>Some headline</h1> */}
 
-          <ul class="hs full">
-            {/* <li class="item transparent">
+      {/* <ul class="hs full"> */}
+      {/* <li class="item transparent">
               {data.site.siteMetadata.description && (
                 <header className="page-head">
                   <h2 className="page-head-title">
@@ -40,10 +85,10 @@ const BlogIndex = ({ data }, location) => {
                 </header>
               )}
             </li> */}
-            {/* <li class="item exhibition-card"> */}
-            <li class="">
-              <HomeCard />
-              {/* <figure class="snip0016">
+      {/* <li class="item exhibition-card"> */}
+      {/* <li class=""> */}
+      {/* <HomeCard /> */}
+      {/* <figure class="snip0016">
                 <img
                   src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample42.jpg"
                   alt="sample42"
@@ -59,14 +104,14 @@ const BlogIndex = ({ data }, location) => {
                   <a href="#" />
                 </figcaption>
               </figure> */}
-            </li>
+      {/* </li>
             <li class="item exhibition-card">test</li>
             <li class="item exhibition-card">test</li>
             <li class="item exhibition-card">test</li>
             <li class="item transparent">test</li>
-          </ul>
+          </ul> */}
 
-          {/* <figure class="snip1482 hover">
+      {/* <figure class="snip1482 hover">
             <figcaption>
               <h2>Desmond Eagle</h2>
               <p>Until you stalk and overrun, you can't devour anyone.</p>
@@ -89,7 +134,7 @@ const BlogIndex = ({ data }, location) => {
             />
           </figure> */}
 
-          <div className="app-wrapper">
+      {/* <div className="app-wrapper">
             <ul class="hs2 full no-scrollbar">
               <li class="item">test</li>
               <li class="item">test</li>
@@ -104,16 +149,16 @@ const BlogIndex = ({ data }, location) => {
               <li class="item">test</li>
               <li class="item">test</li>
             </ul>
-          </div>
+          </div> */}
 
-          <div class="container">
+      {/* <div class="container">
             <div class="item">
               <h3>Block for context</h3>
             </div>
-          </div>
-        </div>
-      </main>
-      <div className="post-feed">
+          </div> */}
+      {/* </div> */}
+      {/* </main> */}
+      {/* <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
 
@@ -126,9 +171,9 @@ const BlogIndex = ({ data }, location) => {
             />
           )
         })}
-      </div>
+      </div> */}
 
-      <article className="post-content-md page-template no-image">
+      {/* <article className="post-content-md page-template no-image">
         <div className="post-content-body">
           <h2 id="grid-system">What to know before investing in art?</h2>
           <div className="row">
@@ -140,7 +185,6 @@ const BlogIndex = ({ data }, location) => {
                   background: "#eee",
                 }}
               >
-                {/* <h1 id="heading-level-4">01</h1> */}
                 <h4 id="heading-level-4">Research the artist</h4>
                 <p>
                   Generally, an artist with an interesting Back-story tends to
@@ -183,7 +227,7 @@ const BlogIndex = ({ data }, location) => {
             </div>
           </div>
         </div>
-      </article>
+      </article> */}
     </Layout>
   )
 }
@@ -200,6 +244,20 @@ const indexQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 1360) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    landingPhoto: file(relativePath: { eq: "landing.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1360) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    logo: file(relativePath: { eq: "logo-v2.png" }) {
+      childImageSharp {
+        fixed(width: 361, height: 220) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
