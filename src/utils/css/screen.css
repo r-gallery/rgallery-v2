@@ -21,6 +21,7 @@ production stylesheet in assets/built/screen.css using gulp dev
 @import "components/layout.css";
 @import "components/home.css";
 @import "components/home-card.css";
+@import "components/landing.css";
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
@@ -495,6 +496,13 @@ body {
 @media (max-width: 1200px) {
   .post-card.no-image .post-card-title {
     font-size: 3.4rem;
+  }
+  .left-text-lg,
+  .right-text-lg {
+    font-size: 3rem;
+  }
+  .left-text {
+    top: 40rem;
   }
 }
 @media (max-width: 700px) {

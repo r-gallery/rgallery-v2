@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.logo {
+  position: absolute;
+  z-index: 2;
+  top: -1px;
+}
+
+.landing-img {
+  padding-left: 5rem;
+  padding-right: 13%;
+}
+
+.left-text {
+  font-family: "Quicksand", sans-serif;
+  position: absolute;
+  top: 54rem;
+  left: 2rem;
+  transform-origin: 0 0;
+  transform: rotate(-90deg);
+  z-index: 3;
+  display: inline-flex;
+}
+
+.right-text {
+  font-family: "Quicksand", sans-serif;
+  position: absolute;
+  right: -27rem;
+  top: 14rem;
+  transform-origin: 0px 0px;
+  transform: rotate(90deg);
+  z-index: 3;
+  display: inline-flex;
+}
+
+.left-text-lg {
+  font-size: 5rem;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+}
+.right-text-lg {
+  font-size: 7rem;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+}
+.left-text-sm,
+.right-text-sm {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.btn-start-wrapper {
+  position: relative;
+  top: -2rem;
+}
+
+.btn-start {
+  left: 20%;
+  color: #fff !important;
+  background: #000;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 2rem;
+  font-size: 2rem;
+  height: auto;
+}
+
+ul > li {
+  margin-left: 3rem;
+}
+
+@media (max-width: 700px) {
+  .landing-img {
+    padding: 0;
+  }
+  .left-text,
+  .right-text {
+    display: none;
+    margin: 3rem;
+    position: relative;
+    top: 5rem;
+    transform-origin: 0 0;
+    transform: rotate(0deg);
+    transition: all 0.2s;
+  }
+
+  .right-text {
+    right: 1rem;
+  }
+}
