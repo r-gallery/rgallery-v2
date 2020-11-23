@@ -1,12 +1,30 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
+// import { Link } from "gatsby"
+import TransitionLink from "gatsby-plugin-transition-link"
+import Link from "gatsby-plugin-transition-link"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Layout = props => {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
+
+  const [showScroll, setShowScroll] = useState(false)
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true)
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false)
+    }
+  }
+  window.addEventListener("scroll", checkScrollTop)
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
-    <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
-      <header className="site-head">
+    <div className={`main-height ${toggleNav ? `site-head-open` : ``}`}>
+      <header className="site-wrapper site-head ">
         <div className="site-head-container">
           <a
             className="nav-burger"
@@ -24,16 +42,29 @@ const Layout = props => {
               </div>
             </div>
           </a>
-          <nav id="swup" class="site-head-left">
+          <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
-              <li className="nav-home nav-current" role="menuitem">
-                <Link to={`/`}>Home</Link>
-              </li>
               <li className="nav-about" role="menuitem">
-                <Link to={`/about`}>About</Link>
+                {/* <Link to={`/about`}>About</Link> */}
+                {/* <AniLink fade to="about"> */}
+                <AniLink fade to="about">
+                  About
+                </AniLink>
               </li>
-              <li className="nav-elements" role="menuitem">
-                <Link to={`/elements`}>Elements</Link>
+              <li className="nav-visit" role="menuitem">
+                <Link to={`/visit`}>Visit</Link>
+              </li>
+              <li className="nav-artists" role="menuitem">
+                <AniLink fade to="artists">
+                  Artists
+                </AniLink>
+                {/* <Link to={`/artists`}>Artists</Link> */}
+              </li>
+              <li className="nav-exhibitions" role="menuitem">
+                <Link to={`/exhibitions`}>Exhibitions</Link>
+              </li>
+              <li className="nav-education" role="menuitem">
+                <Link to={`/education`}>Education</Link>
               </li>
             </ul>
           </nav>
@@ -45,21 +76,29 @@ const Layout = props => {
           <div className="site-head-right">
             <div className="social-links">
               <a
-                href="https://www.facebook.com"
+                href="https://www.instagram.com/rgallery.ph/"
+                title="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/rgalleryph"
                 title="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Facebook
               </a>
-              <a
+              {/* <a
                 href="https://twitter.com"
                 title="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Twitter
-              </a>
+              </a> */}
               <Link
                 to={`/rss.xml`}
                 title="RSS"
@@ -77,16 +116,24 @@ const Layout = props => {
           {children}
         </div>
       </main>
+      <a
+        className="scrollTop"
+        onClick={scrollTop}
+        style={{ height: 40, display: showScroll ? "block" : "none" }}
+      >
+        Back to top &#x2191;
+      </a>
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built with{" "}
-        <a
+        &mdash; &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>{" "}
+        &mdash;
+        {/* Built with{" "} */}
+        {/* <a
           href="https://gatsbyjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Gatsby
-        </a>
+        </a> */}
       </footer>
     </div>
   )

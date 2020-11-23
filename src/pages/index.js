@@ -1,7 +1,10 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
+import TransitionLink from "gatsby-plugin-transition-link"
 
 import Layout from "../components/layout"
+import Bio from "../components/bio"
+import HomeCard from "../components/homeCard"
 import SEO from "../components/seo"
 import PostCard from "../components/postCard"
 
@@ -21,16 +24,99 @@ const BlogIndex = ({ data }, location) => {
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
       {/* <Bio /> */}
-      {data.site.siteMetadata.description && (
-        <header className="page-head">
-          <h2 className="page-head-title">
-            {data.site.siteMetadata.description}
-          </h2>
-        </header>
-      )}
+      <main className="app-wrapper">
+        <div class="app">
+          {/* <h1>Some headline</h1> */}
+
+          <ul class="hs full">
+            {/* <li class="item transparent">
+              {data.site.siteMetadata.description && (
+                <header className="page-head">
+                  <h2 className="page-head-title">
+                    {data.site.siteMetadata.description}
+                    This is a placeholder description about RGallery
+                  </h2>
+                  <p>Another text of lorem ipsum</p>
+                </header>
+              )}
+            </li> */}
+            {/* <li class="item exhibition-card"> */}
+            <li class="">
+              <HomeCard />
+              {/* <figure class="snip0016">
+                <img
+                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample42.jpg"
+                  alt="sample42"
+                />
+                <figcaption>
+                  <h2>
+                    I suppose if we couldn't <span>laugh</span>
+                  </h2>
+                  <p>
+                    At things that don't make sense, we couldn't react to a lot
+                    of life.
+                  </p>
+                  <a href="#" />
+                </figcaption>
+              </figure> */}
+            </li>
+            <li class="item exhibition-card">test</li>
+            <li class="item exhibition-card">test</li>
+            <li class="item exhibition-card">test</li>
+            <li class="item transparent">test</li>
+          </ul>
+
+          {/* <figure class="snip1482 hover">
+            <figcaption>
+              <h2>Desmond Eagle</h2>
+              <p>Until you stalk and overrun, you can't devour anyone.</p>
+            </figcaption>
+            <a href="#" />
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample59.jpg"
+              alt="sample59"
+            />
+          </figure>
+          <figure class="snip1482">
+            <figcaption>
+              <h2>Benjamin Evalent</h2>
+              <p>There's never enough time to do all the nothing you want.</p>
+            </figcaption>
+            <a href="#" />
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample60.jpg"
+              alt="sample60"
+            />
+          </figure> */}
+
+          <div className="app-wrapper">
+            <ul class="hs2 full no-scrollbar">
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+              <li class="item">test</li>
+            </ul>
+          </div>
+
+          <div class="container">
+            <div class="item">
+              <h3>Block for context</h3>
+            </div>
+          </div>
+        </div>
+      </main>
       <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
+
           return (
             <PostCard
               key={node.fields.slug}
@@ -41,6 +127,63 @@ const BlogIndex = ({ data }, location) => {
           )
         })}
       </div>
+
+      <article className="post-content-md page-template no-image">
+        <div className="post-content-body">
+          <h2 id="grid-system">What to know before investing in art?</h2>
+          <div className="row">
+            <div className="col-4">
+              <div
+                style={{
+                  padding: "2rem",
+                  textAlign: "center",
+                  background: "#eee",
+                }}
+              >
+                {/* <h1 id="heading-level-4">01</h1> */}
+                <h4 id="heading-level-4">Research the artist</h4>
+                <p>
+                  Generally, an artist with an interesting Back-story tends to
+                  generate more interest among buyers.
+                </p>
+              </div>
+            </div>
+            <div className="col-4">
+              <div
+                style={{
+                  padding: "2rem",
+                  textAlign: "center",
+                  background: "#eee",
+                }}
+              >
+                <h4 id="heading-level-4">Research the artwork</h4>
+                <p>
+                  First on your list should be the question of it's
+                  authenticity. If a work of art is damaged or substantially
+                  restored, it can effect its value greatly.
+                </p>
+              </div>
+            </div>
+            <div className="col-4">
+              <div
+                style={{
+                  padding: "2rem",
+                  textAlign: "center",
+                  background: "#eee",
+                }}
+              >
+                <h4 id="heading-level-4">Investigate the gallery</h4>
+                <p>
+                  Researching the reputability of a gallery an be much easier.
+                  They feature their top artists, and information on past
+                  exhibits can be found on their websites and through
+                  word-of-mouth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </Layout>
   )
 }
@@ -51,6 +194,13 @@ const indexQuery = graphql`
       siteMetadata {
         title
         description
+      }
+    }
+    photo: file(relativePath: { eq: "about.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1360) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
