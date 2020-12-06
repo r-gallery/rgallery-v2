@@ -8,6 +8,7 @@ production stylesheet in assets/built/screen.css using gulp dev
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 @import "vars.css";
+@import "layout-grid.css";
 @import "components/global.css";
 @import "components/ghost.css";
 @import "components/lists.css";
@@ -27,8 +28,8 @@ production stylesheet in assets/built/screen.css using gulp dev
 /* ---------------------------------------------------------- */
 
 body {
-  font-family: "Muli", sans-serif;
-  background: var(--color-bg);
+  font-family: "Quicksand", sans-serif;
+  background: var(--color-white);
   transition: background 0.3s ease-out;
   transition-delay: 0.25;
 }
@@ -51,9 +52,9 @@ body {
 /* Layout
 /* ---------------------------------------------------------- */
 
-.main-height {
+/* .main-height {
   min-height: 100vh;
-}
+} */
 
 .site-wrapper {
   padding: 3vw;
@@ -387,12 +388,12 @@ body {
   }
 }
 
-/* Post Feed
+/* Post Feed */
 /* ---------------------------------------------------------- */
 
 .post-feed {
   display: flex;
-  align-items: ;
+  align-items: left;
   flex-wrap: wrap;
 }
 

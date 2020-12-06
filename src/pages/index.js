@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 // import TransitionLink from "gatsby-plugin-transition-link"
 
 import Layout from "../components/layout"
@@ -24,210 +25,140 @@ const BlogIndex = ({ data }, location) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <main className="landing-main">
-        <div className="logo">
-          <Img
-            fixed={data.logo.childImageSharp.fixed}
-            alt="RGallery Logo"
-            className=""
-          />
+      <div className="row">
+        <div className="col-6" style={{ padding: 0 }}>
+          <nav>
+            <ul className="nav-wrapper" role="menu">
+              <li role="menuitem">
+                <Link to={`/`}>
+                  <Img
+                    fixed={data.logo.childImageSharp.fixed}
+                    alt="RGallery Logo"
+                    className=""
+                  />
+                </Link>
+              </li>
+              <li className="nav-item" role="menuitem">
+                <Link to={`/exhibitions`}>Exhibitions</Link>
+              </li>
+              <li className="nav-item" role="menuitem">
+                <Link to={`/artists`}>Artists</Link>
+              </li>
+              <li className="nav-item" role="menuitem">
+                <Link to={`/visit`}>Visit</Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="landing-left-content">
+            <div className="landing-left-arrow">&lsaquo;</div>
+            <h3 className="landing-h3">Current Exhibitions</h3>
+            <h1 className="landing-h1">Back to Basic</h1>
+            <ul className="exhibition-date-duration">
+              <li>12 November 2020</li>
+              <li className="date-duration-line" />
+              <li>22 November 2020</li>
+            </ul>
+            <div className="divider-lg" />
+            <p className="description-md">
+              The exhibit features the works of emerging artists with burgeoning
+              talent in the Filipino contemporary art scene.
+            </p>
+            <p className="description-sm">
+              The exhibit features the works of emerging artists with burgeoning
+              talent in the Filipino contemporary art scene.
+            </p>
+            <button className="button primary landing-btn">read more...</button>
+          </div>
+          {/* <Img fluid={data.landingPhoto.childImageSharp.fluid} /> */}
         </div>
-        <section className="landing-img">
-          <Img fluid={data.landingPhoto.childImageSharp.fluid} className="" />
-        </section>
-        <div className="left-text row">
-          <div className="left-text-lg">contemporary</div>
-          <div className="left-text-sm">arts</div>
-        </div>
-        <div className="right-text row">
-          <div className="right-text-lg">creativity</div>
-          <div className="right-text-sm">unfolded</div>
-        </div>
-        <div className="btn-start-wrapper row">
-          <button className="btn-start">Start & Discover</button>
-        </div>
-        <nav
+        {/* <div>
+          <Img fixed={data.burgerMenu.childImageSharp.fixed} alt="Menu" />
+          <nav>
+            <ul
+              style={{
+                textAlign: "right",
+              }}
+            >
+              <li className="nav-item">
+                <Img fixed={data.burgerMenu.childImageSharp.fixed} alt="Menu" />
+              </li>
+            </ul>
+          </nav>
+        </div> */}
+        <div
+          className="col-6"
           style={{
-            // position: "absolute",
-            zIndex: 4,
-            // bottom: "-3rem",
-            // right: "11rem",
+            padding: 0,
           }}
-          className="row"
         >
+          <div className="landing-right-arrow">&rsaquo;</div>
+
+          <div className="text-contemporary">
+            <Img fixed={data.floatingContemporary.childImageSharp.fixed} />
+          </div>
+          <Img fluid={data.landingPhoto.childImageSharp.fluid} />
+        </div>
+      </div>
+      {/* <div className="row">
+        <div className="col-6">
+          <div
+            style={{
+              padding: "1rem 0",
+              textAlign: "center",
+              background: "#eee",
+            }}
+          >
+            6
+          </div>
+        </div>
+        <div className="col-6">
+          <div
+            style={{
+              marginTop: "-8rem",
+              height: "100%",
+            }}
+          >
+            <Img fluid={data.landingPhoto.childImageSharp.fluid} />
+          </div>
+        </div>
+      </div> */}
+      {/* <div>
+        <nav>
           <ul
             style={{
               display: "inline-flex",
             }}
           >
-            <li>About</li>
-            <li>Visit</li>
-            <li>Artists</li>
-            <li>Exhibitions</li>
-            <li>Blog</li>
+            <li>
+              <Img
+                fixed={data.logo.childImageSharp.fixed}
+                alt="RGallery Logo"
+                className=""
+              />
+            </li>
+            <li className="nav-item">Home</li>
+            <li className="nav-item">Exhibitions</li>
+            <li className="nav-item">Artists</li>
+            <li className="nav-item">Visit</li>
           </ul>
         </nav>
-      </main>
-      {/* <Bio /> */}
-      {/* <main className="app-wrapper"> */}
-      {/* <div class="app"> */}
-      {/* <h1>Some headline</h1> */}
+      </div>
 
-      {/* <ul class="hs full"> */}
-      {/* <li class="item transparent">
-              {data.site.siteMetadata.description && (
-                <header className="page-head">
-                  <h2 className="page-head-title">
-                    {data.site.siteMetadata.description}
-                    This is a placeholder description about RGallery
-                  </h2>
-                  <p>Another text of lorem ipsum</p>
-                </header>
-              )}
-            </li> */}
-      {/* <li class="item exhibition-card"> */}
-      {/* <li class=""> */}
-      {/* <HomeCard /> */}
-      {/* <figure class="snip0016">
-                <img
-                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample42.jpg"
-                  alt="sample42"
-                />
-                <figcaption>
-                  <h2>
-                    I suppose if we couldn't <span>laugh</span>
-                  </h2>
-                  <p>
-                    At things that don't make sense, we couldn't react to a lot
-                    of life.
-                  </p>
-                  <a href="#" />
-                </figcaption>
-              </figure> */}
-      {/* </li>
-            <li class="item exhibition-card">test</li>
-            <li class="item exhibition-card">test</li>
-            <li class="item exhibition-card">test</li>
-            <li class="item transparent">test</li>
-          </ul> */}
-
-      {/* <figure class="snip1482 hover">
-            <figcaption>
-              <h2>Desmond Eagle</h2>
-              <p>Until you stalk and overrun, you can't devour anyone.</p>
-            </figcaption>
-            <a href="#" />
-            <img
-              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample59.jpg"
-              alt="sample59"
-            />
-          </figure>
-          <figure class="snip1482">
-            <figcaption>
-              <h2>Benjamin Evalent</h2>
-              <p>There's never enough time to do all the nothing you want.</p>
-            </figcaption>
-            <a href="#" />
-            <img
-              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample60.jpg"
-              alt="sample60"
-            />
-          </figure> */}
-
-      {/* <div className="app-wrapper">
-            <ul class="hs2 full no-scrollbar">
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-              <li class="item">test</li>
-            </ul>
-          </div> */}
-
-      {/* <div class="container">
-            <div class="item">
-              <h3>Block for context</h3>
-            </div>
-          </div> */}
-      {/* </div> */}
-      {/* </main> */}
-      {/* <div className="post-feed">
-        {posts.map(({ node }) => {
-          postCounter++
-
-          return (
-            <PostCard
-              key={node.fields.slug}
-              count={postCounter}
-              node={node}
-              postClass={`post`}
-            />
-          )
-        })}
+      <nav>
+        <ul
+          style={{
+            textAlign: "right",
+          }}
+        >
+          <li className="nav-item">
+            <Img fixed={data.burgerMenu.childImageSharp.fixed} alt="Menu" />
+          </li>
+        </ul>
+      </nav> */}
+      {/* <div className="left" />
+      <div className="right">
+        <Img fluid={data.landingPhoto.childImageSharp.fluid} />
       </div> */}
-
-      {/* <article className="post-content-md page-template no-image">
-        <div className="post-content-body">
-          <h2 id="grid-system">What to know before investing in art?</h2>
-          <div className="row">
-            <div className="col-4">
-              <div
-                style={{
-                  padding: "2rem",
-                  textAlign: "center",
-                  background: "#eee",
-                }}
-              >
-                <h4 id="heading-level-4">Research the artist</h4>
-                <p>
-                  Generally, an artist with an interesting Back-story tends to
-                  generate more interest among buyers.
-                </p>
-              </div>
-            </div>
-            <div className="col-4">
-              <div
-                style={{
-                  padding: "2rem",
-                  textAlign: "center",
-                  background: "#eee",
-                }}
-              >
-                <h4 id="heading-level-4">Research the artwork</h4>
-                <p>
-                  First on your list should be the question of it's
-                  authenticity. If a work of art is damaged or substantially
-                  restored, it can effect its value greatly.
-                </p>
-              </div>
-            </div>
-            <div className="col-4">
-              <div
-                style={{
-                  padding: "2rem",
-                  textAlign: "center",
-                  background: "#eee",
-                }}
-              >
-                <h4 id="heading-level-4">Investigate the gallery</h4>
-                <p>
-                  Researching the reputability of a gallery an be much easier.
-                  They feature their top artists, and information on past
-                  exhibits can be found on their websites and through
-                  word-of-mouth.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article> */}
     </Layout>
   )
 }
@@ -247,16 +178,32 @@ const indexQuery = graphql`
         }
       }
     }
-    landingPhoto: file(relativePath: { eq: "landing.jpg" }) {
+    landingPhoto: file(relativePath: { eq: "landing/sesami-cid.png" }) {
       childImageSharp {
         fluid(maxWidth: 1360) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    logo: file(relativePath: { eq: "logo-v2.png" }) {
+    logo: file(relativePath: { eq: "horizontal-transparent.png" }) {
       childImageSharp {
-        fixed(width: 361, height: 220) {
+        fixed(height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    burgerMenu: file(relativePath: { eq: "burger-menu.png" }) {
+      childImageSharp {
+        fixed(height: 17) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    floatingContemporary: file(
+      relativePath: { eq: "landing/contemporary-text.png" }
+    ) {
+      childImageSharp {
+        fixed(height: 300) {
           ...GatsbyImageSharpFixed
         }
       }
