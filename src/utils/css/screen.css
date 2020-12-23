@@ -20,7 +20,7 @@ production stylesheet in assets/built/screen.css using gulp dev
 @import "components/hamburger.css";
 @import "components/animations.css";
 @import "components/layout.css";
-@import "components/home.css";
+/* @import "components/home.css"; */
 @import "components/home-card.css";
 @import "components/landing.css";
 
@@ -30,8 +30,8 @@ production stylesheet in assets/built/screen.css using gulp dev
 body {
   font-family: "Quicksand", sans-serif;
   background: var(--color-white);
-  transition: background 0.3s ease-out;
-  transition-delay: 0.25;
+  /* transition: background 0.03s ease-out; */
+  /* transition-delay: 0.25; */
 }
 
 .img {
@@ -288,7 +288,7 @@ body {
     height: 40px;
     background: rgba(255, 255, 255, 0);
     z-index: -1;
-    transition: all 0.4s ease-out;
+    /* transition: all 0.4s ease-out; */
     overflow: hidden;
   }
   .site-head-left,
@@ -296,8 +296,8 @@ body {
     position: relative;
     z-index: -1;
     height: auto;
-    transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-    transition-delay: 1s;
+    /* transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition-delay: 1s; */
   }
   .site-head-left a,
   .site-head-right a {
@@ -307,9 +307,9 @@ body {
     line-height: 1.15em;
     font-weight: 200;
     opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+    /* transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99),
       opacity 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-    transform: scale(1.1) translateY(-25px);
+    transform: scale(1.1) translateY(-25px); */
   }
   .site-head-right a {
     padding: 5px 0;
@@ -347,8 +347,8 @@ body {
 
   .site-head-open {
     background: rgba(255, 255, 255, 1);
-    transition: background 0.5s ease-out;
-    transition-delay: 0.25;
+    /* transition: background 0.5s ease-out;
+    transition-delay: 0.25; */
     overflow: hidden;
     height: 100vh;
   }

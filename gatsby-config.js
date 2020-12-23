@@ -23,6 +23,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/exhibitions`,
+        name: `exhibitions`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/current-exhibitions`,
+        name: `currentExhibitions`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/artists`,
         name: `artists`,
       },
@@ -106,5 +120,20 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://3.1.35.180:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`sizes`, `artists`, `artworks`, `exhibitions`],
+        //If using single types place them in this array.
+        singleTypes: [],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        // loginData: {
+        //   identifier: "nenjotsu",
+        //   password: "",
+        // },
+      },
+    },
   ],
 }

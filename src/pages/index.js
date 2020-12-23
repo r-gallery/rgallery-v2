@@ -17,6 +17,9 @@ import "../utils/css/screen.css"
 const BlogIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+  const sizes = data.allStrapiSizes.edges
+
+  console.log("sizes", sizes)
   let postCounter = 0
 
   return (
@@ -26,7 +29,7 @@ const BlogIndex = ({ data }, location) => {
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
       <div className="row">
-        <div className="col-6" style={{ padding: 0 }}>
+        <div className="col-6 no-padding landing-content">
           <nav>
             <ul className="nav-wrapper" role="menu">
               <li role="menuitem">
@@ -51,7 +54,7 @@ const BlogIndex = ({ data }, location) => {
           </nav>
           <div className="landing-left-content">
             <div className="landing-left-arrow">&lsaquo;</div>
-            <h3 className="landing-h3">Current Exhibitions</h3>
+            <h3 className="landing-h3">Current Exhibition</h3>
             <h1 className="landing-h1">Back to Basic</h1>
             <ul className="exhibition-date-duration">
               <li>12 November 2020</li>
@@ -59,15 +62,15 @@ const BlogIndex = ({ data }, location) => {
               <li>22 November 2020</li>
             </ul>
             <div className="divider-lg" />
-            <p className="description-md">
+            <h4>
               The exhibit features the works of emerging artists with burgeoning
               talent in the Filipino contemporary art scene.
-            </p>
+            </h4>
             <p className="description-sm">
               The exhibit features the works of emerging artists with burgeoning
               talent in the Filipino contemporary art scene.
             </p>
-            <button className="button primary landing-btn">read more...</button>
+            <button className="button primary landing-btn">Read more...</button>
           </div>
           {/* <Img fluid={data.landingPhoto.childImageSharp.fluid} /> */}
         </div>
@@ -85,12 +88,7 @@ const BlogIndex = ({ data }, location) => {
             </ul>
           </nav>
         </div> */}
-        <div
-          className="col-6"
-          style={{
-            padding: 0,
-          }}
-        >
+        <div className="col-6 no-padding landing-content">
           <div className="landing-right-arrow">&rsaquo;</div>
 
           <div className="text-contemporary">
@@ -203,8 +201,35 @@ const indexQuery = graphql`
       relativePath: { eq: "landing/contemporary-text.png" }
     ) {
       childImageSharp {
-        fixed(height: 300) {
+        fixed(height: 280) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    currentExhibitions: allFile(
+      filter: {
+        sourceInstanceName: { eq: "exhibitions" }
+        extension: { eq: "md" }
+      }
+      limit: 5
+    ) {
+      edges {
+        node {
+          relativeDirectory
+          extension
+          name
+          childMarkdownRemark {
+            id
+            excerpt(pruneLength: 160)
+            html
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+            }
+          }
         }
       }
     }
@@ -227,6 +252,16 @@ const indexQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allStrapiSizes {
+      edges {
+        node {
+          id
+          title
+          description
+          isActive
         }
       }
     }

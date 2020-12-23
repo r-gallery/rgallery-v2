@@ -21,6 +21,7 @@ A custom, image-centric theme for Gatsby. Made for publishers and portfolios wit
 **Demo: https://gatsby-london.netlify.com**
 
 ---
+
 <p align="center">
   <a href="https://jamstack.studio">
     <img alt="Jamstack Studio" src="https://raw.githubusercontent.com/ImedAdel/media/master/jamstack.studio_(Laptop%20with%20HiDPI%20screen).png" />
@@ -62,5 +63,7 @@ _First time with Gatsby? Take a look on the [official and community-created star
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+    NODE_ENV=production pm2 start npm --name api -- start
 
 <!-- AUTO-GENERATED-CONTENT:END -->
